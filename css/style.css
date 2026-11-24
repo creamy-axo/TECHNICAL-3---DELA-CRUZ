@@ -1,0 +1,243 @@
+/* Design Tokens */
+:root {
+  --color-bg: #eef7ff;
+  --color-surface: #ffffff;
+  --color-primary: #1d6fa5;
+  --color-primary-dark: #14527c;
+  --color-primary-soft: #d6ecff;
+  --color-text: #102a43;
+  --color-muted: #486581;
+  --color-border: #bcd9f2;
+  --color-on-primary: #ffffff;
+
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2.5rem;
+
+  --text-sm: 0.9rem;
+  --text-base: 1rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.85rem;
+
+  --radius: 0.75rem;
+  --font-main: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Base & Typography */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-main);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: calc(var(--radius) - 0.25rem);
+}
+
+h1,
+h2,
+h3 {
+  margin-top: 0;
+  line-height: 1.25;
+  color: var(--color-text);
+}
+
+h1 {
+  font-size: var(--text-xl);
+}
+
+h2 {
+  font-size: var(--text-lg);
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
+}
+
+/* Layout */
+.container {
+  width: min(100% - 2rem, 64rem);
+  margin-inline: auto;
+}
+
+.section {
+  padding-block: var(--space-3);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-3);
+}
+
+/* Navigation */
+.site-header {
+  background-color: var(--color-surface);
+  border-bottom: 2px solid var(--color-border);
+  padding-block: var(--space-2);
+}
+
+.nav-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.brand {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: var(--space-1);
+}
+
+.nav-link {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: var(--radius);
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary-dark);
+}
+
+.nav-link:focus-visible,
+.brand:focus-visible,
+.btn:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  align-items: center;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+  background-color: var(--color-primary-soft);
+}
+
+.hero-img,
+.card-img,
+.banner-img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-img {
+  height: 13rem;
+  margin-bottom: var(--space-2);
+}
+
+.banner-img {
+  max-height: 20rem;
+  margin-top: var(--space-2);
+}
+
+/* Reusable Component 1: Card */
+.card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-3);
+}
+
+.price {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+/* Reusable Component 2: Button */
+.btn {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-on-primary);
+  background-color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+.btn-outline {
+  background-color: var(--color-surface);
+  color: var(--color-primary-dark);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary-soft);
+}
+
+/* Contact Form */
+.contact-form {
+  display: grid;
+  gap: var(--space-1);
+}
+
+.contact-form label {
+  font-weight: 600;
+  font-size: var(--text-sm);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  font: inherit;
+  border: 1px solid var(--color-border);
+  border-radius: calc(var(--radius) - 0.25rem);
+}
+
+/* Footer */
+.site-footer {
+  margin-top: var(--space-4);
+  padding-block: var(--space-3);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: var(--text-sm);
+}
